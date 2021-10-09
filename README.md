@@ -1,24 +1,14 @@
-# README
+# Leboncoin_clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Init project
+docker-compose up
 
-Things you may want to cover:
+docker-compose run web rails db:create
+docker-compose run web rails db:migrate
+docker-compose run web rails db:seed
 
-* Ruby version
+# Launch tests
+docker-compose run web bundle exec rails test
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Import products
+go to /products and upload with tmp/products.csv
