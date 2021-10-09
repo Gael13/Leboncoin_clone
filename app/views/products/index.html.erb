@@ -30,15 +30,18 @@
   </table>
 
   <br>
-
+  
   <%= link_to 'New Product', new_product_path, class: "btn btn-primary" %>
 
+  <div class="link_to_import">
 
-  <div class="upload">
-    <%= form_tag({:action => :import}, multipart: true) do %>
-      <%= file_field_tag :file %>
-      <p><%= submit_tag( "Import" ) %></p>
-    <% end %>
+    <div class="upload">
+      <%= form_tag({:action => :import}, multipart: true) do %>
+        <%= file_field_tag :file %>
+        <p><%= submit_tag( "Import" ) %></p>
+      <% end %>
+    </div>
+
   </div>
 
 </div>

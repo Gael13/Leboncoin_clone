@@ -60,6 +60,18 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def import
+    file   = params[:file]
+    import = Import.new({file: file, dry_run: 'false'})
+
+    if import.errors.blank?
+      import.perform
+      redirect_to root_path, notice: 'File was successfully uploaded.'
+    else
+      redirect_to root_path, alert: import.errors
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
