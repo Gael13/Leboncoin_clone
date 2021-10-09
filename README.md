@@ -17,4 +17,4 @@ docker-compose run web bundle exec rails test
 The prototype is focused on 2 features: 
 
 - as an user I can add a product to the cart and remove it
-- as an owner, I can add or import products, to import products go to /products and upload with tmp/products.csv
+- as an owner, I can create or import products, to import products go to /products and upload with tmp/products.csv
