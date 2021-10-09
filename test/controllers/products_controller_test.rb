@@ -2,7 +2,15 @@ require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @product = products(:one)
+
+    @product = Product.create!(title: 'Product 1',
+              description: 'description product 1',
+              image: Rack::Test::UploadedFile.new(Rails.root.join('test/product.png')),
+              price: 10.90)
+    #@product.image.attach(io: File.open(Rails.root.join('app/assets/images/product.png')),
+                  #filename: 'product.png')
+    #@product = products(:one)
+    #@product.save!
   end
 
   test "should get index" do
@@ -17,7 +25,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product" do
     assert_difference('Product.count') do
-      post products_url, params: { product: { description: @product.description, image: @product.image, price: @product.price, title: @product.title } }
+      post products_url, params: { product: { description: @product.description, image: Rack::Test::UploadedFile.new(Rails.root.join('test/product.png')), price: @product.price, title: @product.title } }
     end
 
     assert_redirected_to product_url(Product.last)
@@ -34,7 +42,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update product" do
-    patch product_url(@product), params: { product: { description: @product.description, image: @product.image, price: @product.price, title: @product.title } }
+    patch product_url(@product), params: { product: { description: @product.description, image: Rack::Test::UploadedFile.new(Rails.root.join('test/product.png')), price: @product.price, title: @product.title } }
     assert_redirected_to product_url(@product)
   end
 

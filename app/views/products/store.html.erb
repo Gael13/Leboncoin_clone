@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<div class="products col-md-offset-3 col-md-6">
+
+  <h1>Leboncoin Products</h1>
+
+  <% cache @products do %>
+    <% @products.each do |product| %>
+      <% cache product do %>
+        <div class="product">
+          <%#=link_to (image_tag(product.image)), line_items_path(product_id: product), method: :post,remote: true %>
+          <h3><%= product.title %></h3>
+          <%= sanitize(product.description) %>
+          <div class="price_line">
+            <span class="price"><%= number_to_currency(product.price) %></span>
+            <%#= button_to 'Add to Cart', line_items_path(product_id: product), remote: true, class: 'btn btn-primary' %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+</div>

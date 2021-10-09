@@ -1,0 +1,13 @@
+<% product_carts.each do |product_cart| %>
+  <tr>
+    <td>
+      <%=image_tag(product_cart.product.image,size: "24") if product_cart.product.image.attached? %>
+    </td>
+    <td><%= product_cart.product.title %></td>
+    <td><%= product_cart.product.description %></td>
+    <td class="item_price"><%= number_to_currency(product_cart.product.price) %></td>
+    <td>
+      <%= link_to ' X', destroy_product_cart_path(id: product_cart.id), method: :delete, remote:true, data: { confirm: 'Remove item from cart' } %>
+    </td>
+  </tr>
+<% end %>

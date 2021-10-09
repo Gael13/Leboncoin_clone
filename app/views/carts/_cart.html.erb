@@ -1,0 +1,6 @@
+<% unless cart.product_carts.empty? %>
+  <h2>Your Cart</h2>
+  <table id="cart">
+    <%= render 'product_carts', product_carts: cart.product_carts %>
+  </table>
+<% end %>
