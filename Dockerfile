@@ -1,19 +1,7 @@
 FROM ruby:2.6.3
-#RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn
-
-#RUN apt-get update \
-    #&& apt-get upgrade -y \
-    #&& curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-    #&& apt-get install -y nodejs postgresql-client \
-    #npm \
-    #yarn
 
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client npm
-
 RUN npm i -g yarn && yarn
-
-
-#RUN apt-get update -qq && apt-get install -y yarn
 
 RUN mkdir /Leboncoin_clone
 WORKDIR /Leboncoin_clone

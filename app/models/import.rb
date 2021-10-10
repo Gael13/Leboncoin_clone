@@ -62,8 +62,6 @@ class Import
   def insert_row(row)
     product = Product.where(conditions(row)).first
 
-    puts "ROW ===============< #{row}"
-
     if product.nil?
       product = Product.new
       product.title       = row[0]

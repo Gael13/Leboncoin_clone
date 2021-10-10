@@ -1,16 +1,12 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
+  
   setup do
-
     @product = Product.create!(title: 'Product 1',
               description: 'description product 1',
               image: Rack::Test::UploadedFile.new(Rails.root.join('test/product.png')),
               price: 10.90)
-    #@product.image.attach(io: File.open(Rails.root.join('app/assets/images/product.png')),
-                  #filename: 'product.png')
-    #@product = products(:one)
-    #@product.save!
   end
 
   test "should get index" do
